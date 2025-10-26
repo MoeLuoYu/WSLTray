@@ -2,7 +2,7 @@
 #include <tchar.h>
 
 // 启动WSL并使其后台常驻
-bool LaunchWSLBackground() {
+bool WSLTray() {
 	// 启动WSL的bash shell（保持WSL实例运行）
 	// WSL默认启动后会保持运行，直到手动执行wsl --shutdown
 	TCHAR cmdLine[] = _T("wsl.exe --exec bash");
@@ -43,6 +43,6 @@ bool LaunchWSLBackground() {
 // 无控制台窗口的程序入口
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 	// 启动WSL后立即退出程序，WSL在后台常驻
-	LaunchWSLBackground();
+	WSLTray();
 	return 0;
 }
